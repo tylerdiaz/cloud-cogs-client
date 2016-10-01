@@ -3,7 +3,7 @@ var path = require("path");
 module.exports = {
   entry: {
     app: [
-      'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+      'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
       'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
       './index.js'
     ]
