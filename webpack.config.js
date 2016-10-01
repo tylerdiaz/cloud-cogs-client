@@ -8,6 +8,12 @@ module.exports = {
       './index.js'
     ]
   },
+  devServer: {
+    port: 3000,
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  },
   output: {
     path: path.resolve(__dirname + '/dist'),
     filename: '[name].js',

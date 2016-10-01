@@ -23,3 +23,7 @@ npm start
 ## How do I work on this?
 
 For now, talk to Tyler. Once he gets tired of narrating, he'll update this section.
+
+## TODO
+
+[ ] Linking to a route requires the path to be typed by hand instead of decoding it from the type. (e.g LinkTo "/about" vs. LinkTo AboutRoute)
