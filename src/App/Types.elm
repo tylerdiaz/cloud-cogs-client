@@ -2,12 +2,7 @@ module App.Types exposing (..)
 
 import Hop.Types exposing (Config, Address, Query)
 import App.Routes exposing (Route(..))
-
-
-type alias User =
-    { username : String
-    , email : String
-    }
+import User.Types exposing (User)
 
 
 type alias Model =
@@ -18,5 +13,5 @@ type alias Model =
 
 
 type Msg
-    = DoStuff
-    | NavigateTo String
+    = NavigateTo String
+    | UserAction User.Types.Msg

@@ -6,6 +6,7 @@ import Navigation
 import Hop
 import App.Routes exposing (Route(NotFoundRoute), routes)
 import UrlParser exposing (parse)
+import User.State
 
 
 initialState ( route, address ) =
@@ -44,8 +45,12 @@ urlParser =
 
 update msg model =
     case msg of
-        DoStuff ->
-            ( model, Cmd.none )
+        UserAction action ->
+            let
+                ( newUser, effects ) =
+                    User.State.update action model.user
+            in
+                ( { model | user = Just newUser }, Cmd.none )
 
         NavigateTo path ->
             let
