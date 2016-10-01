@@ -3,6 +3,11 @@ module User.State exposing (..)
 import User.Types exposing (..)
 
 
+initialState =
+    -- (Just { username = "one", email = "person@asd.com" })
+    Nothing
+
+
 update msg model =
     case msg of
         DoStuff ->

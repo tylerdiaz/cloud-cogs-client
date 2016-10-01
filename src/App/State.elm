@@ -12,7 +12,7 @@ import User.State
 initialState ( route, address ) =
     ( { address = address
       , route = route
-      , user = Nothing
+      , user = User.State.initialState
       }
     , Cmd.none
     )
