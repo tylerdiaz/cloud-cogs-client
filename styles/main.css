@@ -1,0 +1,19 @@
+/* font-family: 'Playfair Display', serif; */
+
+body {
+  color: #ccc;
+  font: 14px/1.6 'Fauna One';
+}
+html {
+  background:#010d26 url(/images/bg.png) repeat;
+  height: 100%;
+  width: 100%;
+}
+.landing-container {
+  width: 720px;
+  margin-top: 80px;
+}
+.landing-description {
+  font-size: 11px;
+  margin-top: 20px;
+}

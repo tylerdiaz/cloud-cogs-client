@@ -6,6 +6,7 @@ import Html.Events exposing (..)
 import App.Types exposing (..)
 import App.Routes exposing (Route(..))
 import User.Types
+import LandingPage.View
 
 
 headerNavigation user =
@@ -39,23 +40,7 @@ layout model children =
 pageView model =
     case model.route of
         MainRoute ->
-            let
-                email =
-                    case model.user of
-                        Just user ->
-                            user.email
-
-                        Nothing ->
-                            "anonymous"
-            in
-                layout model
-                    [ div
-                        []
-                        [ button [ onClick (NavigateTo "about") ] [ text "About" ]
-                        , button [ onClick (UserAction User.Types.DoStuff) ] [ text "Transform" ]
-                        , span [] [ text email ]
-                        ]
-                    ]
+            LandingPage.View.rootView
 
         AboutRoute ->
             layout model
