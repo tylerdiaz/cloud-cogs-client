@@ -12,8 +12,8 @@ initialState =
 
 update msg model =
     case msg of
-        UsernameInput val ->
+        UpdateUsernameInput val ->
             ( { model | usernameInput = val }, Cmd.none )
 
-        PasswordInput val ->
+        UpdatePasswordInput val ->
             ( { model | passwordInput = val }, Cmd.none )

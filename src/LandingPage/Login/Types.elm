@@ -9,5 +9,5 @@ type alias Model =
 
 
 type Msg
-    = UsernameInput String
-    | PasswordInput String
+    = UpdateUsernameInput String
+    | UpdatePasswordInput String
