@@ -7,11 +7,13 @@ import Hop
 import App.Routes exposing (Route(NotFoundRoute), routes)
 import UrlParser exposing (parse)
 import User.State
+import LandingPage.State
 
 
 initialState ( route, address ) =
     ( { address = address
       , route = route
+      , landingPage = LandingPage.State.initialState
       , user = User.State.initialState
       }
     , Cmd.none
@@ -45,6 +47,13 @@ urlParser =
 
 update msg model =
     case msg of
+        LandingAction action ->
+            let
+                ( newLandingPage, effects ) =
+                    LandingPage.State.update action model.landingPage
+            in
+                ( { model | landingPage = newLandingPage }, Cmd.none )
+
         UserAction action ->
             let
                 ( newUser, effects ) =

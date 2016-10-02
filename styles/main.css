@@ -11,9 +11,29 @@ html {
 }
 .landing-container {
   width: 720px;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 .landing-description {
   font-size: 11px;
   margin-top: 20px;
+}
+h2 {
+  font: 18px/2.5 'Playfair Display';
+  text-transform: uppercase;
+  color: #eee;
+  font-weight: bold;
+  letter-spacing:3px;
+}
+
+.form {
+  margin-bottom:30px;
+}
+.input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #70859d;
+  color: #eee;
+  margin-bottom: 10px;
+}
+.label {
+  color: #aaa;
 }

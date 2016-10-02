@@ -1,6 +1,7 @@
 module App.View exposing (..)
 
 import Html exposing (..)
+import Html.App
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import App.Types exposing (..)
@@ -40,7 +41,7 @@ layout model children =
 pageView model =
     case model.route of
         MainRoute ->
-            LandingPage.View.rootView
+            Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
 
         AboutRoute ->
             layout model
