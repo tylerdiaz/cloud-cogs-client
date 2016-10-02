@@ -2,10 +2,12 @@ module LandingPage.State exposing (..)
 
 import LandingPage.Types exposing (..)
 import LandingPage.Login.State as LoginState
+import LandingPage.Register.State as RegisterState
 
 
 initialState =
     { loginForm = LoginState.initialState
+    , registerForm = RegisterState.initialState
     }
 
 
@@ -17,3 +19,10 @@ update msg model =
                     LoginState.update action model.loginForm
             in
                 ( { model | loginForm = newLogin }, Cmd.none )
+
+        RegisterAction action ->
+            let
+                ( newForm, effects ) =
+                    RegisterState.update action model.registerForm
+            in
+                ( { model | registerForm = newForm }, Cmd.none )

@@ -18,7 +18,7 @@ rootView model =
                 , p [ class "landing-description" ] [ text "Currently in Alpha v0.1" ]
                 ]
             , div [ class "column is-offset-1" ]
-                [ Html.App.map LoginAction (RegistrationView.rootView)
+                [ Html.App.map RegisterAction (RegistrationView.rootView model.registerForm)
                 , Html.App.map LoginAction (LoginView.rootView model.loginForm)
                 ]
             ]

@@ -1,11 +1,13 @@
 module LandingPage.Types exposing (..)
 
-import LandingPage.Login.Types as LoginTypes exposing (Model, Msg(..))
+import LandingPage.Login.Types as LoginTypes
+import LandingPage.Register.Types as RegisterTypes
 
 
 type alias Model =
-    { login : LoginTypes.Model }
+    { loginForm : LoginTypes.Model, registerForm : RegisterTypes.Model }
 
 
 type Msg
     = LoginAction LoginTypes.Msg
+    | RegisterAction RegisterTypes.Msg
