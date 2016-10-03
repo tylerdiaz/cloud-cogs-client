@@ -16,5 +16,4 @@ type alias Model =
 
 type Msg
     = NavigateTo String
-    | UserAction User.Types.Msg
     | LandingAction LandingTypes.Msg

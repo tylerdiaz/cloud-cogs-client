@@ -54,13 +54,6 @@ update msg model =
             in
                 ( { model | landingPage = newLandingPage }, Cmd.none )
 
-        UserAction action ->
-            let
-                ( newUser, effects ) =
-                    User.State.update action model.user
-            in
-                ( { model | user = Just newUser }, Cmd.none )
-
         NavigateTo path ->
             let
                 command =
