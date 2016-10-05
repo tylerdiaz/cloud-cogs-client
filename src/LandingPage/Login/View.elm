@@ -4,7 +4,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import App.Types exposing (Msg(..))
-import LandingPage.Types as LandingTypes
 import LandingPage.Login.Types as LoginTypes
 
 
