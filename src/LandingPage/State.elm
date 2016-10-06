@@ -18,11 +18,11 @@ update msg model =
                 ( newLogin, effects ) =
                     LoginState.update action model.loginForm
             in
-                ( { model | loginForm = newLogin }, Cmd.none )
+                ( { model | loginForm = newLogin }, Cmd.map LoginAction effects )
 
         RegisterAction action ->
             let
                 ( newForm, effects ) =
                     RegisterState.update action model.registerForm
             in
-                ( { model | registerForm = newForm }, Cmd.none )
+                ( { model | registerForm = newForm }, Cmd.map RegisterAction effects )

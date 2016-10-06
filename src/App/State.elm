@@ -52,7 +52,7 @@ update msg model =
                 ( newLandingPage, effects ) =
                     LandingPage.State.update action model.landingPage
             in
-                ( { model | landingPage = newLandingPage }, Cmd.none )
+                ( { model | landingPage = newLandingPage }, Cmd.map LandingAction effects )
 
         NavigateTo path ->
             let
