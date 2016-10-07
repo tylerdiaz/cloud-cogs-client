@@ -11,18 +11,18 @@ initialState =
     }
 
 
-update msg model =
+update msg model userModel =
     case msg of
         LoginAction action ->
             let
                 ( newLogin, effects ) =
                     LoginState.update action model.loginForm
             in
-                ( { model | loginForm = newLogin }, Cmd.map LoginAction effects )
+                ( { model | loginForm = newLogin }, userModel, Cmd.map LoginAction effects )
 
         RegisterAction action ->
             let
                 ( newForm, effects ) =
                     RegisterState.update action model.registerForm
             in
-                ( { model | registerForm = newForm }, Cmd.map RegisterAction effects )
+                ( { model | registerForm = newForm }, userModel, Cmd.map RegisterAction effects )

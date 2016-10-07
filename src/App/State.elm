@@ -47,12 +47,16 @@ urlParser =
 
 update msg model =
     case msg of
+        -- Landing page can affect the user (login/signup) so we include it
         LandingAction action ->
             let
-                ( newLandingPage, effects ) =
-                    LandingPage.State.update action model.landingPage
+                ( newLandingPage, newUser, effects ) =
+                    LandingPage.State.update
+                        action
+                        model.landingPage
+                        model.user
             in
-                ( { model | landingPage = newLandingPage }, Cmd.map LandingAction effects )
+                ( { model | landingPage = newLandingPage, user = newUser }, Cmd.map LandingAction effects )
 
         NavigateTo path ->
             let
