@@ -13,18 +13,19 @@ initialState =
     }
 
 
-update msg model =
+update msg model userModel =
     case msg of
         UpdateUsernameInput val ->
-            ( { model | usernameInput = val }, Cmd.none )
+            ( { model | usernameInput = val }, userModel, Cmd.none )
 
         Submit ->
             ( { model | submitting = True, error = Nothing }
+            , userModel
             , LoginApi.postLoginForm model.usernameInput model.passwordInput
             )
 
         LoginSuccess response ->
-            ( { model | submitting = False }, Cmd.none )
+            ( { model | submitting = False }, userModel, Cmd.none )
 
         LoginFailure httpError ->
             let
@@ -36,7 +37,7 @@ update msg model =
                         _ ->
                             "Server is down. Try later."
             in
-                ( { model | submitting = False, error = Just errorMessage }, Cmd.none )
+                ( { model | submitting = False, error = Just errorMessage }, userModel, Cmd.none )
 
         UpdatePasswordInput val ->
-            ( { model | passwordInput = val }, Cmd.none )
+            ( { model | passwordInput = val }, userModel, Cmd.none )

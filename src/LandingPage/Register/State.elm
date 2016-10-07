@@ -11,13 +11,13 @@ initialState =
     }
 
 
-update msg model =
+update msg model userModel =
     case msg of
         UpdateEmailInput val ->
-            ( { model | emailInput = val }, Cmd.none )
+            ( { model | emailInput = val }, userModel, Cmd.none )
 
         UpdateUsernameInput val ->
-            ( { model | usernameInput = val }, Cmd.none )
+            ( { model | usernameInput = val }, userModel, Cmd.none )
 
         UpdatePasswordInput val ->
-            ( { model | passwordInput = val }, Cmd.none )
+            ( { model | passwordInput = val }, userModel, Cmd.none )

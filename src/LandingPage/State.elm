@@ -15,14 +15,20 @@ update msg model userModel =
     case msg of
         LoginAction action ->
             let
-                ( newLogin, effects ) =
-                    LoginState.update action model.loginForm
+                ( newLogin, newUser, effects ) =
+                    LoginState.update
+                        action
+                        model.loginForm
+                        userModel
             in
                 ( { model | loginForm = newLogin }, userModel, Cmd.map LoginAction effects )
 
         RegisterAction action ->
             let
-                ( newForm, effects ) =
-                    RegisterState.update action model.registerForm
+                ( newForm, newUser, effects ) =
+                    RegisterState.update
+                        action
+                        model.registerForm
+                        userModel
             in
                 ( { model | registerForm = newForm }, userModel, Cmd.map RegisterAction effects )
