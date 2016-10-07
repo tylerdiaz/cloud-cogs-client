@@ -16,5 +16,5 @@ type Msg
     = UpdateUsernameInput String
     | UpdatePasswordInput String
     | Submit
-    | LoginSuccess (HttpBuilder.Response (String -> UserTypes.User))
+    | LoginSuccess (HttpBuilder.Response UserTypes.User)
     | LoginFailure (HttpBuilder.Error String)

@@ -28,7 +28,10 @@ update msg model userModel =
             )
 
         LoginSuccess response ->
-            ( { model | submitting = False }, userModel, Cmd.none )
+            ( { model | submitting = False, error = Nothing }
+            , Just response.data
+            , Cmd.none
+            )
 
         LoginFailure httpError ->
             let

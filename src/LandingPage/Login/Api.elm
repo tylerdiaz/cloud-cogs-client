@@ -14,14 +14,16 @@ import LandingPage.Types exposing (Msg(LoginAction))
 
 
 loginErrorDecoder =
-    ("error" := Decode.string)
+    "error" := Decode.string
 
 
 userDecoder =
-    Decode.object2
-        UserTypes.User
-        ("id" := Decode.int)
-        ("name" := Decode.string)
+    "user"
+        := Decode.object3
+            UserTypes.User
+            ("id" := Decode.int)
+            ("jwt" := Decode.string)
+            ("username" := Decode.string)
 
 
 loginFormEncoder username password =

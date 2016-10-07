@@ -25,6 +25,17 @@ renderError error =
             div [] []
 
 
+formButton buttonLabel isLoading =
+    let
+        btnClass =
+            if isLoading then
+                "button is-primary is-loading is-disabled"
+            else
+                "button is-primary"
+    in
+        button [ class btnClass ] [ text buttonLabel ]
+
+
 rootView model =
     div []
         [ h2 [] [ text "Back again?" ]
@@ -32,6 +43,6 @@ rootView model =
         , Html.form [ class "form", onSubmit LoginTypes.Submit ]
             [ formInput "Username" [ type' "text", value model.usernameInput, onInput LoginTypes.UpdateUsernameInput ]
             , formInput "Password" [ type' "password", value model.passwordInput, onInput LoginTypes.UpdatePasswordInput ]
-            , button [ class "button is-primary" ] [ text "Wake up" ]
+            , formButton "Regain consciousness" model.submitting
             ]
         ]
