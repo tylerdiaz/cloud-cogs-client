@@ -18,6 +18,9 @@ update msg model userModel =
         UpdateUsernameInput val ->
             ( { model | usernameInput = val }, userModel, Cmd.none )
 
+        UpdatePasswordInput val ->
+            ( { model | passwordInput = val }, userModel, Cmd.none )
+
         Submit ->
             ( { model | submitting = True, error = Nothing }
             , userModel
@@ -38,6 +41,3 @@ update msg model userModel =
                             "Server is down. Try later."
             in
                 ( { model | submitting = False, error = Just errorMessage }, userModel, Cmd.none )
-
-        UpdatePasswordInput val ->
-            ( { model | passwordInput = val }, userModel, Cmd.none )
