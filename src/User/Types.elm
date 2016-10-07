@@ -2,6 +2,7 @@ module User.Types exposing (..)
 
 
 type alias User =
-    { username : String
+    { id : Int
+    , username : String
     , email : String
     }
