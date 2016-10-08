@@ -21,7 +21,7 @@ update msg model userModel =
                         model.loginForm
                         userModel
             in
-                ( { model | loginForm = newLogin }, userModel, Cmd.map LoginAction effects )
+                ( { model | loginForm = newLogin }, newUser, Cmd.map LoginAction effects )
 
         RegisterAction action ->
             let
@@ -31,4 +31,4 @@ update msg model userModel =
                         model.registerForm
                         userModel
             in
-                ( { model | registerForm = newForm }, userModel, Cmd.map RegisterAction effects )
+                ( { model | registerForm = newForm }, newUser, Cmd.map RegisterAction effects )
