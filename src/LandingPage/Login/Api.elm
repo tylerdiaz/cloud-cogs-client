@@ -1,13 +1,12 @@
 module LandingPage.Login.Api exposing (..)
 
-import Time
+import ApiHelpers exposing (postJson)
 import Json.Decode as Decode exposing ((:=))
 import Json.Encode as Encode
-import User.Types as UserTypes
-import LandingPage.Login.Types exposing (Msg(..))
 import App.Types exposing (Msg(LandingAction))
+import User.Types as UserTypes
 import LandingPage.Types exposing (Msg(LoginAction))
-import ApiHelpers exposing (postJson)
+import LandingPage.Login.Types exposing (Msg(LoginFailure, LoginSuccess))
 
 
 loginErrorDecoder =
