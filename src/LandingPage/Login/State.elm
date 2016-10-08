@@ -3,6 +3,7 @@ module LandingPage.Login.State exposing (..)
 import LandingPage.Login.Types exposing (..)
 import LandingPage.Login.Api as LoginApi
 import HttpBuilder
+import Store
 
 
 initialState =
@@ -37,7 +38,7 @@ update msg model userModel =
         LoginSuccess response ->
             ( { model | submitting = False, error = Nothing }
             , Just response.data
-            , Cmd.none
+            , Store.setStorage ( "jwtToken", response.data.jwt )
             )
 
         LoginFailure httpError ->

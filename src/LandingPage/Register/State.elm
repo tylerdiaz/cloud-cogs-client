@@ -3,6 +3,7 @@ module LandingPage.Register.State exposing (..)
 import LandingPage.Register.Types exposing (..)
 import HttpBuilder
 import LandingPage.Register.Api as RegisterApi
+import Store
 
 
 initialState =
@@ -45,7 +46,7 @@ update msg model userModel =
         RegisterSuccess response ->
             ( { model | submitting = False, errors = Nothing }
             , Just response.data
-            , Cmd.none
+            , Store.setStorage ( "jwtToken", response.data.jwt )
             )
 
         RegisterFailure httpError ->
