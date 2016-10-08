@@ -18,8 +18,8 @@ userDecoder =
         := Decode.object3
             UserTypes.User
             ("id" := Decode.int)
-            ("jwt" := Decode.string)
             ("username" := Decode.string)
+            ("jwt" := Decode.string)
 
 
 loginFormEncoder username password =
