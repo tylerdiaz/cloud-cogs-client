@@ -1,16 +1,13 @@
 module LandingPage.Login.Api exposing (..)
 
-import Debug
-import Task exposing (Task)
 import Time
-import App.Config exposing (apiUrl)
-import HttpBuilder exposing (..)
 import Json.Decode as Decode exposing ((:=))
 import Json.Encode as Encode
 import User.Types as UserTypes
 import LandingPage.Login.Types exposing (Msg(..))
 import App.Types exposing (Msg(LandingAction))
 import LandingPage.Types exposing (Msg(LoginAction))
+import ApiHelpers exposing (postJson)
 
 
 loginErrorDecoder =
@@ -38,11 +35,8 @@ loginFormEncoder username password =
 
 
 postLoginForm username password =
-    let
-        request =
-            HttpBuilder.post (apiUrl ++ "sessions")
-                |> withJsonBody (loginFormEncoder username password)
-                |> HttpBuilder.withHeader "content-type" "application/json"
-                |> HttpBuilder.send (jsonReader userDecoder) (jsonReader loginErrorDecoder)
-    in
-        Task.perform LoginFailure LoginSuccess request
+    postJson
+        "sessions"
+        (loginFormEncoder username password)
+        ( loginErrorDecoder, LoginFailure )
+        ( userDecoder, LoginSuccess )
