@@ -23,7 +23,10 @@ initialState { jwtToken } ( route, address ) =
 
 
 subscriptions model =
-    Store.storageValue StorageValue
+    Sub.batch
+        [ Store.storageValue StorageValue
+        , LandingPage.State.subscriptions model.landingPage model.user |> Sub.map LandingAction
+        ]
 
 
 hopConfig =

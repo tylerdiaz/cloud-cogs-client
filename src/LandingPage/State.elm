@@ -11,6 +11,13 @@ initialState =
     }
 
 
+subscriptions model userModel =
+    Sub.batch
+        [ LoginState.subscriptions model userModel |> Sub.map LoginAction
+        , RegisterState.subscriptions model userModel |> Sub.map RegisterAction
+        ]
+
+
 update msg model userModel =
     case msg of
         LoginAction action ->

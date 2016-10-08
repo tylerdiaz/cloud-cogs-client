@@ -14,6 +14,10 @@ initialState =
     }
 
 
+subscriptions model userModel =
+    Sub.none
+
+
 update msg model userModel =
     case msg of
         UpdateEmailInput val ->

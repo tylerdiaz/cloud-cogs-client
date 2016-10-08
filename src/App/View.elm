@@ -52,10 +52,7 @@ pageView model =
         AboutRoute ->
             layout model
                 [ div []
-                    [ h2 [ class "title" ] [ text "About" ]
-                    , button [ onClick (RetrieveValue "stuff") ] [ text "Retrieve it" ]
-                    , button [ onClick (StoreValue ( "stuff", "the value of stuff" )) ] [ text "Store it" ]
-                    ]
+                    [ h2 [ class "title" ] [ text "About" ] ]
                 ]
 
         NotFoundRoute ->
