@@ -3,11 +3,12 @@ module Main exposing (..)
 import Navigation exposing (program)
 import App.State
 import App.View
+import App.Types exposing (Flags)
 
 
-main : Program Never
+main : Program Flags
 main =
-    Navigation.program App.State.urlParser
+    Navigation.programWithFlags App.State.urlParser
         { init = App.State.initialState
         , update = App.State.update
         , urlUpdate = App.State.urlUpdate

@@ -1,26 +1,27 @@
 {
-    "name": "cloud-cogs",
-    "version": "1.0.0",
-    "description": "Client side of cloud-cogs, a world were people live on flying ships.",
-    "main": "webpack.config.js",
-    "dependencies": {
-        "css-loader": "^0.25.0",
-        "elm-hot-loader": "^0.3.4",
-        "elm-webpack-loader": "^3.0.6",
-        "file-loader": "^0.9.0",
-        "style-loader": "^0.13.1",
-        "url-loader": "^0.5.7",
-        "webpack": "^1.13.2",
-        "webpack-dev-middleware": "^1.8.3",
-        "webpack-dev-server": "^1.16.1"
-    },
-    "devDependencies": {
-        "elm-hot-loader": "^0.3.4"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "webpack-dev-server --progress --colors --watch --hot"
-    },
-    "author": "Tyler J. Diaz",
-    "license": "ISC"
+  "name": "cloud-cogs",
+  "version": "1.0.0",
+  "description": "Client side of cloud-cogs, a world were people live on flying ships.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "css-loader": "^0.25.0",
+    "elm-hot-loader": "^0.3.4",
+    "elm-webpack-loader": "^3.0.6",
+    "file-loader": "^0.9.0",
+    "local-storage": "^1.4.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.8.3",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "devDependencies": {
+    "elm-hot-loader": "^0.3.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress --colors --watch --hot"
+  },
+  "author": "Tyler J. Diaz",
+  "license": "ISC"
 }

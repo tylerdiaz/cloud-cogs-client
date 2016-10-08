@@ -41,11 +41,22 @@ layout model children =
 pageView model =
     case model.route of
         MainRoute ->
-            Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
+            case model.user of
+                Nothing ->
+                    Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
+
+                Just user ->
+                    layout model
+                        [ div [] [ h2 [ class "title" ] [ text "About" ] ] ]
 
         AboutRoute ->
             layout model
-                [ div [] [ h2 [ class "title" ] [ text "About" ] ] ]
+                [ div []
+                    [ h2 [ class "title" ] [ text "About" ]
+                    , button [ onClick (RetrieveValue "stuff") ] [ text "Retrieve it" ]
+                    , button [ onClick (StoreValue ( "stuff", "the value of stuff" )) ] [ text "Store it" ]
+                    ]
+                ]
 
         NotFoundRoute ->
             div [] [ h2 [ class "title" ] [ text "Not found" ] ]

@@ -4,7 +4,16 @@
 require('./index.html');
 
 var Elm = require('./src/Main.elm');
-var mountNode = document.getElementById('main');
+var localStorage = require('local-storage');
 
-// The third value on embed are the initial values for incomming ports into Elm
-var app = Elm.Main.embed(mountNode);
+var mountNode = document.getElementById('main');
+var app = Elm.Main.embed(mountNode, { jwtToken: localStorage.get("jwtToken")});
+
+// Local storage port
+app.ports.getStorage.subscribe(key => {
+    app.ports.storageValue.send([key, localStorage.get(key)]);
+});
+
+app.ports.setStorage.subscribe(tuple => {
+    localStorage.set(tuple[0], tuple[1]);
+});

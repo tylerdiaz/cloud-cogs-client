@@ -1,6 +1,7 @@
 module App.State exposing (..)
 
 import App.Types exposing (..)
+import App.Api as Api
 import Dict
 import Navigation
 import Hop
@@ -8,20 +9,21 @@ import App.Routes exposing (Route(NotFoundRoute), routes)
 import UrlParser exposing (parse)
 import User.State
 import LandingPage.State
+import Store
 
 
-initialState ( route, address ) =
+initialState { jwtToken } ( route, address ) =
     ( { address = address
       , route = route
       , landingPage = LandingPage.State.initialState
       , user = User.State.initialState
       }
-    , Cmd.none
+    , Api.retrieveUser jwtToken
     )
 
 
-subscriptions _ =
-    Sub.none
+subscriptions model =
+    Store.storageValue StorageValue
 
 
 hopConfig =
@@ -65,3 +67,24 @@ update msg model =
                         |> Navigation.newUrl
             in
                 ( model, command )
+
+        StorageValue ( key, value ) ->
+            -- set it in da model
+            case value of
+                Nothing ->
+                    ( model, Cmd.none )
+
+                Just val ->
+                    ( model, Cmd.none )
+
+        StoreValue ( key, val ) ->
+            ( model, Store.setStorage ( key, val ) )
+
+        RetrieveValue key ->
+            ( model, Store.getStorage key )
+
+        SetUser userModel ->
+            ( { model | user = Just userModel.data }, Cmd.none )
+
+        DeadResponse txt ->
+            ( model, Cmd.none )
