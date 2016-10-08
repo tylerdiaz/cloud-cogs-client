@@ -21,6 +21,9 @@ update msg model userModel =
         UpdatePasswordInput val ->
             ( { model | passwordInput = val }, userModel, Cmd.none )
 
+        ClearError ->
+            ( { model | error = Nothing }, userModel, Cmd.none )
+
         Submit ->
             ( { model | submitting = True, error = Nothing }
             , userModel

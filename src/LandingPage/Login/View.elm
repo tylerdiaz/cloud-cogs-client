@@ -19,7 +19,10 @@ formInput inputLabel inputAttrs =
 renderError error =
     case error of
         Just errorText ->
-            div [ class "notification is-warning" ] [ text errorText ]
+            div [ class "notification is-warning" ]
+                [ button [ class "delete", onClick LoginTypes.ClearError ] []
+                , text errorText
+                ]
 
         Nothing ->
             div [] []
