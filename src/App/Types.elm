@@ -22,8 +22,5 @@ type alias Flags =
 type Msg
     = NavigateTo String
     | LandingAction LandingTypes.Msg
-    | StorageValue ( String, Maybe String )
-    | RetrieveValue String
-    | StoreValue ( String, String )
     | SetUser (HttpBuilder.Response User)
     | DeadResponse (HttpBuilder.Error String)

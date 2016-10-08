@@ -9,7 +9,6 @@ import App.Routes exposing (Route(NotFoundRoute), routes)
 import UrlParser exposing (parse)
 import User.State
 import LandingPage.State
-import Store
 
 
 initialState { jwtToken } ( route, address ) =
@@ -24,8 +23,7 @@ initialState { jwtToken } ( route, address ) =
 
 subscriptions model =
     Sub.batch
-        [ Store.storageValue StorageValue
-        , LandingPage.State.subscriptions model.landingPage model.user |> Sub.map LandingAction
+        [ LandingPage.State.subscriptions model.landingPage model.user |> Sub.map LandingAction
         ]
 
 
@@ -70,21 +68,6 @@ update msg model =
                         |> Navigation.newUrl
             in
                 ( model, command )
-
-        StorageValue ( key, value ) ->
-            -- set it in da model
-            case value of
-                Nothing ->
-                    ( model, Cmd.none )
-
-                Just val ->
-                    ( model, Cmd.none )
-
-        StoreValue ( key, val ) ->
-            ( model, Store.setStorage ( key, val ) )
-
-        RetrieveValue key ->
-            ( model, Store.getStorage key )
 
         SetUser userModel ->
             ( { model | user = Just userModel.data }, Cmd.none )
