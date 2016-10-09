@@ -8,32 +8,12 @@ import App.Types exposing (..)
 import App.Routes exposing (Route(..))
 import User.Types
 import LandingPage.View
-
-
-headerNavigation user =
-    case user of
-        Just user ->
-            div [ class "nav-left" ]
-                [ a [ class "nav-item is-tab is-active", onClick (NavigateTo "/") ] [ text "Cloud Cogs" ]
-                , a [ class "nav-item is-tab", onClick (NavigateTo "about") ] [ text "About" ]
-                , a [ class "nav-item is-tab" ] [ text "Sign out" ]
-                , a [ class "nav-item is-tab" ] [ text "Account" ]
-                ]
-
-        Nothing ->
-            div [ class "nav-left" ]
-                [ a [ class "nav-item is-tab is-active" ] [ text "Cloud Cogs" ]
-                , a [ class "nav-item is-tab" ] [ text "Sign in" ]
-                , a [ class "nav-item is-tab" ] [ text "Sign up" ]
-                ]
+import Header.View as Header
 
 
 layout model children =
     div []
-        [ header [ class "header" ]
-            [ nav [ class "nav has-shadow" ]
-                [ div [ class "container" ] [ headerNavigation model.user ] ]
-            ]
+        [ Header.rootView model.user model.route
         , div [ class "container" ] children
         ]
 
