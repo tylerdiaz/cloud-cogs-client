@@ -4,6 +4,7 @@ body {
   font: 14px/1.6 'Fauna One';
 }
 html {height: 100%;}
+.container { max-width:960px; }
 .landing-body {
   background:#010d26 url(/images/bg.png) repeat;
   min-height:100vh;
@@ -28,6 +29,8 @@ h2 {
 .form {
   margin-bottom:30px;
 }
+
+
 .input {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid #70859d;

@@ -4,6 +4,7 @@
 require('./index.html');
 
 require('!style!css!sass!bulma')
+require('!style!css!sass!./styles/main.scss')
 
 var Elm = require('./src/Main.elm');
 var localStorage = require('local-storage');

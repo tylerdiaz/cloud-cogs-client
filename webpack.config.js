@@ -23,11 +23,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(css|scss)$/,
-        loaders: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        loaders: ['style', 'css', 'sass']
       },
       {
         test:    /\.html$/,
@@ -49,5 +45,5 @@ module.exports = {
       },
     ],
     noParse: /\.elm$/,
-  },
+  }
 };
