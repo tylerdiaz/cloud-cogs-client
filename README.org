@@ -19,7 +19,5 @@ npm start
 For now, talk to Tyler. Once he gets tired of narrating, he'll update this section.
 
 ** Stuff to do
-*** Reverse routing
-Linking to a route requires the path to be typed by hand instead of decoding it from the type. (e.g LinkTo "/about" vs. LinkTo AboutRoute)
-
-No out-of-the-box support by hop at the moment: https://github.com/sporto/hop/blob/master/docs/reverse-routing.md
+*** Reset local user if jwtToken is no good when checking current_user
+*** Sign out

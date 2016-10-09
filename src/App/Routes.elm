@@ -22,5 +22,18 @@ matchers =
     ]
 
 
+reverse : Route -> String
+reverse route =
+    case route of
+        MainRoute ->
+            ""
+
+        AboutRoute ->
+            "about"
+
+        NotFoundRoute ->
+            ""
+
+
 routes =
     oneOf matchers
