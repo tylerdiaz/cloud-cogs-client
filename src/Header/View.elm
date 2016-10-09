@@ -25,9 +25,16 @@ navigationItem currentRoute destinationRoute contentHtml =
 headerNavigation user route =
     case user of
         Just user ->
-            div [ class "nav-left" ]
-                [ navigationItem route MainRoute [ img [ src "/images/logo-stamp.png" ] [] ]
-                , navigationItem route AboutRoute [ text "About" ]
+            div [ class "container" ]
+                [ div [ class "nav-left" ]
+                    [ navigationItem route MainRoute [ img [ src "/images/logo-stamp.png" ] [] ]
+                    , navigationItem route AboutRoute [ text "About" ]
+                    ]
+                , div [ class "nav-right" ]
+                    [ span [ class "nav-item" ]
+                        [ button [ class "button" ] [ span [] [ text "Log out/Sleep" ] ]
+                        ]
+                    ]
                 ]
 
         Nothing ->
@@ -39,5 +46,5 @@ headerNavigation user route =
 rootView userModel route =
     header [ class "header" ]
         [ nav [ class "nav has-shadow" ]
-            [ div [ class "container" ] [ headerNavigation userModel route ] ]
+            [ headerNavigation userModel route ]
         ]

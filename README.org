@@ -20,4 +20,6 @@ For now, talk to Tyler. Once he gets tired of narrating, he'll update this secti
 
 ** Stuff to do
 *** Reset local user if jwtToken is no good when checking current_user
-*** Sign out
+*** Wireframe sidebar
+*** Wireframe game interface (dialogue/moving/actionable events)
+*** Make sign out button work

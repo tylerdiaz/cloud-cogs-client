@@ -14,7 +14,7 @@ import Header.View as Header
 layout model children =
     div []
         [ Header.rootView model.user model.route
-        , div [ class "container" ] children
+        , div [ class "container" ] [ children ]
         ]
 
 
@@ -25,6 +25,15 @@ loadingView =
         , div [ class "double-bounce2" ]
             []
         ]
+
+
+dashboardView model =
+    layout model
+        (div [ class "columns" ]
+            [ div [ class "column is-two-thirds" ] [ text "stuff happens in here" ]
+            , div [ class "column " ] [ text "sidebar" ]
+            ]
+        )
 
 
 pageView model =
@@ -40,14 +49,11 @@ pageView model =
                             Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
 
                 Just user ->
-                    layout model
-                        [ div [] [ h2 [ class "title" ] [ text "signed in" ] ] ]
+                    dashboardView model
 
         AboutRoute ->
             layout model
-                [ div []
-                    [ h2 [ class "title" ] [ text "About" ] ]
-                ]
+                (div [] [ h2 [ class "title" ] [ text "About" ], p [] [ text "nothing to talk about really..." ] ])
 
         NotFoundRoute ->
             div [] [ h2 [ class "title" ] [ text "Not found" ] ]
