@@ -5,16 +5,15 @@ This is the client side for the game. It's implemented in Elm. (⌐■_■)
 *** Step 1
 Make sure you're in the client directory. Install Node.js, NPM, and Elm tools.
 *** Step 2
-Install the local packages
-```bash
+Install the local packages.
+#+BEGIN_SRC bash
 npm install
-```
+#+END_SRC
 *** Step 3
 Run it.
-
-```bash
+#+BEGIN_SRC bash
 npm start
-```
+#+END_SRC
 
 ** How do I work on this?
 For now, talk to Tyler. Once he gets tired of narrating, he'll update this section.
