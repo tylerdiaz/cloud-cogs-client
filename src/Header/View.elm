@@ -32,7 +32,7 @@ headerNavigation user route =
                     ]
                 , div [ class "nav-right" ]
                     [ span [ class "nav-item" ]
-                        [ button [ class "button" ] [ span [] [ text "Log out/Sleep" ] ]
+                        [ button [ class "button" ] [ span [] [ text "Log out" ] ]
                         ]
                     ]
                 ]
