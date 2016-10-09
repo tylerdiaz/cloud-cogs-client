@@ -4,10 +4,11 @@ import ApiHelpers exposing (postJson)
 import App.Config exposing (apiUrl)
 import Json.Decode as Decode exposing ((:=))
 import Json.Encode as Encode
-import App.Types exposing (Msg(DeadResponse, SetUser))
+import App.Types exposing (Msg(DeadResponse, SetUser, LoadingUser))
 import Task
 import HttpBuilder exposing (jsonReader, stringReader)
 import User.Types as UserTypes
+import Cmd.Extra exposing (message)
 
 
 userDecoder =
@@ -32,4 +33,7 @@ retrieveUser jwtToken =
             Cmd.none
 
         Just token ->
-            Task.perform DeadResponse SetUser (requestCurrentUser token)
+            Cmd.batch
+                [ message LoadingUser
+                , Task.perform DeadResponse SetUser (requestCurrentUser token)
+                ]

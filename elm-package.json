@@ -16,6 +16,7 @@
         "evancz/url-parser": "1.0.0 <= v < 2.0.0",
         "lukewestby/elm-http-builder": "3.0.0 <= v < 4.0.0",
         "rgrempel/elm-http-decorators": "1.0.2 <= v < 2.0.0",
+        "shmookey/cmd-extra": "1.0.0 <= v < 2.0.0",
         "sporto/hop": "6.0.0 <= v < 7.0.0"
     },
     "elm-version": "0.17.0 <= v < 0.18.0"

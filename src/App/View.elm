@@ -38,16 +38,30 @@ layout model children =
         ]
 
 
+loadingView =
+    div [ class "spinner" ]
+        [ div [ class "double-bounce1" ]
+            []
+        , div [ class "double-bounce2" ]
+            []
+        ]
+
+
 pageView model =
     case model.route of
         MainRoute ->
             case model.user of
                 Nothing ->
-                    Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
+                    case model.initialLoading of
+                        True ->
+                            loadingView
+
+                        False ->
+                            Html.App.map LandingAction (LandingPage.View.rootView model.landingPage)
 
                 Just user ->
                     layout model
-                        [ div [] [ h2 [ class "title" ] [ text "About" ] ] ]
+                        [ div [] [ h2 [ class "title" ] [ text "signed in" ] ] ]
 
         AboutRoute ->
             layout model

@@ -16,6 +16,7 @@ initialState { jwtToken } ( route, address ) =
       , route = route
       , landingPage = LandingPage.State.initialState
       , user = User.State.initialState
+      , initialLoading = False
       }
     , Api.retrieveUser jwtToken
     )
@@ -71,6 +72,9 @@ update msg model =
 
         SetUser userModel ->
             ( { model | user = Just userModel.data }, Cmd.none )
+
+        LoadingUser ->
+            ( { model | initialLoading = True }, Cmd.none )
 
         DeadResponse txt ->
             ( model, Cmd.none )

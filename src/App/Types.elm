@@ -12,6 +12,7 @@ type alias Model =
     , landingPage : LandingTypes.Model
     , address : Address
     , route : Route
+    , initialLoading : Bool
     }
 
 
@@ -23,4 +24,5 @@ type Msg
     = NavigateTo String
     | LandingAction LandingTypes.Msg
     | SetUser (HttpBuilder.Response User)
+    | LoadingUser
     | DeadResponse (HttpBuilder.Error String)
