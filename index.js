@@ -3,6 +3,8 @@
 // Require index.html so it gets copied to dist
 require('./index.html');
 
+require('!style!css!sass!bulma')
+
 var Elm = require('./src/Main.elm');
 var localStorage = require('local-storage');
 
