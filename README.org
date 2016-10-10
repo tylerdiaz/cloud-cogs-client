@@ -18,6 +18,17 @@ npm start
 ** How do I work on this?
 For now, talk to Tyler. Once he gets tired of narrating, he'll update this section.
 
+** To deploy
+You need [[https://github.com/s3tools/s3cmd][s3cmd]] to deploy. Install on mac:
+#+BEGIN_SRC bash
+brew install s3cmd
+#+END_SRC
+
+Then inside the client folder run:
+#+BEGIN_SRC bash
+npm deploy
+#+END_SRC
+
 ** Stuff to do
 *** Reset local user if jwtToken is no good when checking current_user
 *** Wireframe sidebar

@@ -27,7 +27,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --colors --watch --hot",
-    "build": "webpack -p --config ./webpack.production.config.js --progress --profile --colors"
+    "build": "webpack -p --config ./webpack.production.config.js --progress --profile --colors",
+    "deploy": "npm run build && s3cmd put --recursive --human-readable-sizes --exclude=.DS_Store --reduced-redundancy --acl-public dist/ s3://clouds.tylerdiaz.com/"
   },
   "author": "Tyler J. Diaz",
   "license": "ISC"
