@@ -25,4 +25,4 @@ type Msg
     | LandingAction LandingTypes.Msg
     | SetUser (HttpBuilder.Response User)
     | LoadingUser
-    | DeadResponse (HttpBuilder.Error String)
+    | CurrentUserHttpErr (HttpBuilder.Error String)

@@ -76,5 +76,5 @@ update msg model =
         LoadingUser ->
             ( { model | initialLoading = True }, Cmd.none )
 
-        DeadResponse txt ->
-            ( model, Cmd.none )
+        CurrentUserHttpErr err ->
+            ( { model | initialLoading = False }, Cmd.none )
