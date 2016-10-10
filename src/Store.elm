@@ -6,6 +6,9 @@ port module Store exposing (..)
 port getStorage : String -> Cmd msg
 
 
+port removeStorage : String -> Cmd msg
+
+
 port setStorage : ( String, String ) -> Cmd msg
 
 

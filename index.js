@@ -20,3 +20,7 @@ app.ports.getStorage.subscribe(key => {
 app.ports.setStorage.subscribe(tuple => {
     localStorage.set(tuple[0], tuple[1]);
 });
+
+app.ports.removeStorage.subscribe(key => {
+    localStorage.remove(key);
+});

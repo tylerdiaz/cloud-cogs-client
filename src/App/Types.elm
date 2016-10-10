@@ -25,4 +25,5 @@ type Msg
     | LandingAction LandingTypes.Msg
     | SetUser (HttpBuilder.Response User)
     | LoadingUser
+    | SignOut
     | CurrentUserHttpErr (HttpBuilder.Error String)

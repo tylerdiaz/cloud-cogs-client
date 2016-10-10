@@ -3,7 +3,7 @@ module Header.View exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import App.Types exposing (Msg(NavigateTo))
+import App.Types exposing (Msg(NavigateTo, SignOut))
 import App.Routes exposing (reverse, Route(..))
 
 
@@ -32,7 +32,7 @@ headerNavigation user route =
                     ]
                 , div [ class "nav-right" ]
                     [ span [ class "nav-item" ]
-                        [ button [ class "button" ] [ span [] [ text "Log out" ] ]
+                        [ button [ class "button", onClick SignOut ] [ span [] [ text "Log out" ] ]
                         ]
                     ]
                 ]

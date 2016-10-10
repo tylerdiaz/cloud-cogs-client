@@ -9,6 +9,7 @@ import App.Routes exposing (Route(NotFoundRoute), routes)
 import UrlParser exposing (parse)
 import User.State
 import LandingPage.State
+import Store
 
 
 initialState { jwtToken } ( route, address ) =
@@ -71,7 +72,10 @@ update msg model =
                 ( model, command )
 
         SetUser userModel ->
-            ( { model | user = Just userModel.data }, Cmd.none )
+            ( { model | user = Just userModel.data, initialLoading = False }, Cmd.none )
+
+        SignOut ->
+            ( { model | user = Nothing }, Store.removeStorage ("jwtToken") )
 
         LoadingUser ->
             ( { model | initialLoading = True }, Cmd.none )

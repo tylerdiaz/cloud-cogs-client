@@ -9,6 +9,7 @@ import App.Routes exposing (Route(..))
 import User.Types
 import LandingPage.View
 import Header.View as Header
+import String
 
 
 layout model children =
