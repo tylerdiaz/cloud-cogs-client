@@ -10,14 +10,16 @@ import UrlParser exposing (parse)
 import User.State
 import LandingPage.State
 import Store
+import Game.State
 
 
 initialState { jwtToken } ( route, address ) =
     ( { address = address
       , route = route
-      , landingPage = LandingPage.State.initialState
       , user = User.State.initialState
+      , landingPage = LandingPage.State.initialState
       , initialLoading = False
+      , game = Game.State.initialState
       }
     , Api.retrieveUser jwtToken
     )

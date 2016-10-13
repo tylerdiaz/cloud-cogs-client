@@ -82,4 +82,107 @@ h2 {
     -webkit-transform: scale(1.0);
   }
 }
+
+.location-banner-container {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 155px;
+  margin-bottom:10px;
+  img { }
+  .location-name {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    color: #ddd;
+    font-size:16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding:10px 15px;
+  }
+
+}
+
 .layout-container { margin-top: 15px; }
+.sidebar-module {
+  margin: 20px 0;
+  h4 {
+    font: 14px/1 'Playfair Display';
+    text-transform: uppercase;
+    color: #111;
+    font-weight: bold;
+    letter-spacing:3px;
+    margin: 0;
+  }
+  &.discovered-locations {
+    .travel-link { margin-left: 5px; font-size:12px;}
+  }
+}
+
+.dialogue-view {
+  .dialogue-image {
+    margin-top:5px;
+  }
+
+  .dialogue-messages {
+    max-height: 280px;
+    overflow-y: auto;
+
+    li {
+      margin: 5px;
+    }
+
+    .dialogue-options {
+      margin: 5px;
+      .dialogue-options-label {
+        text-transform: uppercase;
+        color:#aaa;
+        font-size:11px;
+        letter-spacing: 1px;
+        margin-top: 15px;
+      }
+      .button { margin: 5px 10px 0 0; }
+    }
+  }
+}
+
+.narrative-view {
+  height:180px;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  &.full-view { height: 300px; }
+
+  .narrative-options {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .button {
+      margin: 10px 5px;
+    }
+   }
+
+  ul {
+    text-align: center;
+
+    li {
+      color: #bbb;
+      animation: fadein 1s;
+      margin: 5px 0;
+
+      &:nth-last-child(1) {color: #000;}
+      &:nth-last-child(2) {color: #333;}
+      &:nth-last-child(3) {color: #555;}
+      &:nth-last-child(4) {color: #777;}
+      &:nth-last-child(5) {color: #999;}
+    }
+  }
+}
+@keyframes fadein {
+  from { opacity: 0; background: #ff0; }
+  to   { opacity: 1; background: transparent; }
+}

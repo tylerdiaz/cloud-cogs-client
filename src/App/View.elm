@@ -11,6 +11,7 @@ import LandingPage.View
 import Header.View as Header
 import Sidebar.View as SidebarView
 import String
+import GameNarrative.View
 
 
 layout model children =
@@ -29,11 +30,21 @@ loadingView =
         ]
 
 
+locationBannerView locationModel =
+    div [ class "location-banner-container" ]
+        [ img [ src locationModel.image ] []
+        , div [ class "location-name" ] [ text locationModel.name ]
+        ]
+
+
 dashboardView model =
     layout model
         (div [ class "columns" ]
-            [ div [ class "column is-two-thirds" ] [ text "stuff happens in here" ]
-            , div [ class "column " ] [ SidebarView.rootView model ]
+            [ div [ class "column is-two-thirds" ]
+                [ locationBannerView model.game.location
+                , GameNarrative.View.rootView model.game
+                ]
+            , div [ class "column " ] [ SidebarView.rootView model.game ]
             ]
         )
 

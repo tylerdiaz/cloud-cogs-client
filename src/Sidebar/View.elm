@@ -6,41 +6,62 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
 
-userCardView model =
+rootView gameModel =
+    div [ class "content" ]
+        [ userCardView gameModel
+        , inventoryView gameModel.inventory
+        , locationsView gameModel.discoveredLocations
+        ]
+
+
+
+-- Your overview
+
+
+userCardView { location, character } =
     div [ class "sidebar-module" ]
         [ h4 [] [ text "Your overview" ]
         , ul []
             [ li [] [ text "Name: pixeltweak" ]
-            , li [] [ text "Area: Little Piston, 2nd floor" ]
-            , li [] [ text "Credits: 120" ]
-            , li [] [ text "Energy: 90/100" ]
+            , li [] [ text ("Area: " ++ location.area) ]
+            , li [] [ text ("Credits: " ++ (toString character.credits)) ]
+            , li [] [ text ("Energy: " ++ (toString character.energy) ++ "/" ++ (toString character.max_energy)) ]
             ]
         ]
 
 
-locationsView model =
-    div [ class "sidebar-module discovered-locations" ]
-        [ h4 [] [ text "Discovered locations" ]
-        , ul []
-            [ li [] [ text "Library", a [ href "#", class "travel-link is-small" ] [ text "visit" ] ]
-            , li [] [ text "Bank", a [ href "#", class "travel-link is-small" ] [ text "visit" ] ]
-            ]
-        ]
+
+-- Inventory
 
 
-inventoryView model =
+itemView { id, name, quantity } =
+    let
+        quantityText =
+            if quantity > 1 then
+                " x" ++ (toString quantity)
+            else
+                ""
+    in
+        li [] [ text (name ++ quantityText) ]
+
+
+inventoryView inventoryModel =
     div [ class "sidebar-module" ]
         [ h4 [] [ text "Inventory" ]
-        , ul []
-            [ li [] [ text "Wrench x2" ]
-            , li [] [ text "Baseball x4" ]
-            ]
+        , ul [] (List.map itemView inventoryModel)
         ]
 
 
-rootView model =
-    div [ class "content" ]
-        [ userCardView model
-        , inventoryView model
-        , locationsView model
+
+-- Discovered Locations
+
+
+discoveredLocation { id, name } =
+    li [] [ text name, a [ href "#", class "travel-link is-small" ] [ text "visit" ] ]
+
+
+locationsView locationsModel =
+    div [ class "sidebar-module discovered-locations" ]
+        [ h4 [] [ text "Discovered locations" ]
+        , ul [] (List.map discoveredLocation locationsModel)
         ]
