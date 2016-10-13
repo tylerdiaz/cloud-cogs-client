@@ -16,7 +16,7 @@ import String
 layout model children =
     div []
         [ Header.rootView model.user model.route
-        , div [ class "container" ] [ children ]
+        , div [ class "container layout-container" ] [ children ]
         ]
 
 

@@ -5,6 +5,7 @@ body {
 }
 html {height: 100%;}
 .container { max-width:960px; }
+
 .landing-body {
   background:#010d26 url(/images/bg.png) repeat;
   min-height:100vh;
@@ -81,3 +82,4 @@ h2 {
     -webkit-transform: scale(1.0);
   }
 }
+.layout-container { margin-top: 15px; }
