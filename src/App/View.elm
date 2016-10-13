@@ -9,6 +9,7 @@ import App.Routes exposing (Route(..))
 import User.Types
 import LandingPage.View
 import Header.View as Header
+import Sidebar.View as SidebarView
 import String
 
 
@@ -32,7 +33,7 @@ dashboardView model =
     layout model
         (div [ class "columns" ]
             [ div [ class "column is-two-thirds" ] [ text "stuff happens in here" ]
-            , div [ class "column " ] [ text "sidebar" ]
+            , div [ class "column " ] [ SidebarView.rootView model ]
             ]
         )
 
