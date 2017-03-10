@@ -1,5 +1,5 @@
 * cloud-cogs (working name)
-This is the client side for the game. It's implemented in Elm. (⌐■_■)
+The client side for the game, implemented in Elm.
 
 Here's what it looks like:
 [[file:screenshot.png]]
@@ -31,9 +31,3 @@ Then inside the client folder run:
 #+BEGIN_SRC bash
 npm deploy
 #+END_SRC
-
-** Stuff to do
-*** Reset local user if jwtToken is no good when checking current_user
-*** Wireframe sidebar
-*** Wireframe game interface (dialogue/moving/actionable events)
-*** Make sign out button work
