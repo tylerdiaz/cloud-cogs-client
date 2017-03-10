@@ -1,6 +1,9 @@
 * cloud-cogs (working name)
 This is the client side for the game. It's implemented in Elm. (⌐■_■)
 
+Here's what it looks like:
+[[file:screenshot.png]]
+
 ** How do I turn it on?
 *** Step 1
 Make sure you're in the client directory. Install Node.js, NPM, and Elm tools.
