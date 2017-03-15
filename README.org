@@ -1,5 +1,5 @@
-* cloud-cogs (working name)
-The client side for the game, implemented in Elm.
+* Cloud Cogs
+The client side for the game, implemented in Elm. You can see the API here: https://github.com/tylerdiaz/cloud-cogs-api
 
 Here's what it looks like:
 [[file:screenshot.png]]
